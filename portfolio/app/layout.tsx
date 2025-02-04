@@ -7,8 +7,9 @@ import Footer from "./components/layout/Footer";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Modern Portfolio",
-  description: "A showcase of modern web development skills and projects",
+  metadataBase: new URL('https://portfolio.giannisk.dev'),
+  title: "Giannis Katsanakis - Full Stack Developer",
+  description: "Full Stack Developer specializing in Java, Spring Boot, React, and Next.js",
   keywords: [
     "portfolio",
     "web development",
@@ -18,36 +19,36 @@ export const metadata: Metadata = {
     "react",
     "next.js",
     "typescript",
+    "java",
+    "spring boot"
   ],
-  authors: [{ name: "Your Name" }],
-  creator: "Your Name",
-  publisher: "Your Name",
+  authors: [{ name: "Giannis Katsanakis" }],
+  creator: "Giannis Katsanakis",
+  publisher: "Giannis Katsanakis",
   robots: {
     index: true,
     follow: true,
   },
   openGraph: {
     type: "website",
-    locale: "en_US",
-    url: "https://your-portfolio.com",
-    siteName: "Modern Portfolio",
-    title: "Modern Portfolio - Your Name",
-    description: "A showcase of modern web development skills and projects",
+    locale: "en_GB",
+    siteName: "Giannis Katsanakis Portfolio",
+    title: "Giannis Katsanakis - Full Stack Developer",
+    description: "Full Stack Developer specializing in Java, Spring Boot, React, and Next.js",
     images: [
       {
-        url: "https://your-portfolio.com/og-image.jpg",
+        url: "/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "Modern Portfolio",
+        alt: "Giannis Katsanakis Portfolio",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Modern Portfolio - Your Name",
-    description: "A showcase of modern web development skills and projects",
-    creator: "@yourusername",
-    images: ["https://your-portfolio.com/og-image.jpg"],
+    title: "Giannis Katsanakis - Full Stack Developer",
+    description: "Full Stack Developer specializing in Java, Spring Boot, React, and Next.js",
+    images: ["/og-image.jpg"],
   },
 };
 
