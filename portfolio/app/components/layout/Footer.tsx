@@ -91,7 +91,7 @@ const Footer = () => {
         {/* Copyright */}
         <div className="mt-8 pt-8 border-t border-gray-200 dark:border-gray-800">
           <p className="text-gray-500 dark:text-gray-400 text-sm text-center">
-            © {currentYear} Portfolio. All rights reserved.
+            © {currentYear} Giannis Katsanakis. All rights reserved.
           </p>
         </div>
       </div>

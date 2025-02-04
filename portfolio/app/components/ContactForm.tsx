@@ -1,7 +1,8 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
+import emailjs from '@emailjs/browser';
 
 interface FormData {
   name: string;
@@ -10,6 +11,10 @@ interface FormData {
 }
 
 export default function ContactForm() {
+  useEffect(() => {
+    emailjs.init(process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!);
+  }, []);
+
   const [formData, setFormData] = useState<FormData>({
     name: "",
     email: "",
@@ -41,9 +46,17 @@ export default function ContactForm() {
     setIsSubmitting(true);
 
     try {
-      // TODO: Implement form submission logic
-      // For now, simulate an API call
-      await new Promise((resolve) => setTimeout(resolve, 1000));
+      await emailjs.send(
+        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
+        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!,
+        {
+          from_name: formData.name,
+          from_email: formData.email,
+          message: formData.message,
+          to_email: 'giannis.katsanakis1@gmail.com'
+        },
+        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY
+      );
 
       setStatus({
         type: "success",
@@ -51,6 +64,7 @@ export default function ContactForm() {
       });
       setFormData({ name: "", email: "", message: "" });
     } catch (error) {
+      console.error('EmailJS error:', error);
       setStatus({
         type: "error",
         message: "Failed to send message. Please try again later.",
