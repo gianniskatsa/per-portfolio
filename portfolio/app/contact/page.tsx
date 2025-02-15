@@ -79,7 +79,7 @@ export default function Contact() {
   const socialLinks = [
     {
       name: "LinkedIn",
-      url: "https://www.linkedin.com/in/your-linkedin",
+      url: "https://www.linkedin.com/in/giannis-katsanakis/",
       icon: (
         <svg
           className="w-6 h-6"
@@ -92,7 +92,7 @@ export default function Contact() {
     },
     {
       name: "GitHub",
-      url: "https://github.com/your-github",
+      url: "https://github.com/gianniskatsa",
       icon: (
         <svg
           className="w-6 h-6"
@@ -119,8 +119,8 @@ export default function Contact() {
             Get in Touch
           </h1>
           <p className="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-            I'm always interested in hearing about new opportunities and collaborations. 
-            Feel free to reach out if you'd like to discuss a project or just want to connect.
+            I am always interested in hearing about new opportunities and collaborations. 
+            Feel free to reach out if you would like to discuss a project or just want to connect.
           </p>
         </motion.div>
       </section>

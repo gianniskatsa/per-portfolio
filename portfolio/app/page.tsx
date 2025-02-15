@@ -99,7 +99,7 @@ export default function Home() {
                 About Me
               </h2>
               <p className="text-gray-600 dark:text-gray-300">
-                I'm a Software Engineer based in London, specializing in Java enterprise solutions and modern web technologies. 
+                I am a Software Engineer based in London, specializing in Java enterprise solutions and modern web technologies. 
                 With experience at Accenture UK, I focus on building scalable microservices, implementing clean code practices, 
                 and delivering robust solutions using Spring Framework and cloud technologies.
               </p>
