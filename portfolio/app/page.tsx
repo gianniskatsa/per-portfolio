@@ -36,7 +36,7 @@ export default function Home() {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative h-[60vh] flex items-center justify-center overflow-hidden">
+      <section className="relative min-h-[60vh] md:h-[60vh] flex items-center justify-center overflow-hidden py-20 md:py-0">
         <div className="absolute inset-0">
           <Image
             src="/images/hero/london-docklands-hero.jpg" 
@@ -52,9 +52,9 @@ export default function Home() {
             initial="initial"
             animate="animate"
             variants={fadeIn}
-            className="text-center space-y-8"
+            className="text-center space-y-6 md:space-y-8"
           >
-            <div className="relative w-32 h-32 mx-auto mb-8">
+            <div className="relative w-28 h-28 md:w-32 md:h-32 mx-auto mb-6 md:mb-8">
               <Image
                 src="/images/hero/profile.jpg"
                 alt="Giannis Katsanakis"
@@ -63,13 +63,13 @@ export default function Home() {
                 priority
               />
             </div>
-            <h1 className="text-4xl sm:text-6xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400">
+            <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400">
               Giannis Katsanakis
             </h1>
-            <h2 className="text-3xl sm:text-4xl font-bold text-gray-800 dark:text-gray-200 mt-4">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-800 dark:text-gray-200 mt-3 md:mt-4">
               Software Engineer
             </h2>
-            <p className="text-xl sm:text-2xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+            <p className="text-lg sm:text-xl md:text-2xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
               Building scalable enterprise solutions with Java and modern web technologies
             </p>
             <div className="flex justify-center">
