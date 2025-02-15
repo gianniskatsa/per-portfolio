@@ -12,23 +12,23 @@ export default function Home() {
   };
 
   const skills = {
+    Backend: ["Java", "Spring Framework", "Microservices", "Hibernate", "PostgreSQL", "REST APIs"],
     Frontend: ["React", "Next.js", "TypeScript", "JavaScript", "HTML/CSS", "Tailwind CSS"],
-    Backend: ["Java", "Spring Framework", "Core Java", "Hibernate", "PostgreSQL", "REST APIs"],
     DevOps: ["Docker", "Kubernetes", "Terraform", "AWS", "CI/CD", "Maven"],
-    Practices: ["Clean Code", "TDD", "Microservices", "Concurrent Programming", "Unit Testing", "Teamwork"]
+    Practices: ["Clean Code", "TDD", "Concurrent Programming"]
   };
 
   const experience = [
     {
       role: "Software Engineering Consultant",
       company: "Accenture UK & Ireland",
-      period: "Jun 2022 - Present",
+      period: "June 2022 - Present",
       location: "London, UK",
     },
     {
       role: "Junior Java Developer",
       company: "Agile Actors",
-      period: "Mar 2021 - Jun 2022",
+      period: "March 2021 - June 2022",
       location: "Athens, Greece",
     }
   ];
@@ -37,7 +37,16 @@ export default function Home() {
     <div className="min-h-screen">
       {/* Hero Section */}
       <section className="relative h-[60vh] flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-blue-50 to-white dark:from-gray-900 dark:to-gray-800 z-0" />
+        <div className="absolute inset-0">
+          <Image
+            src="/images/hero/london-docklands-hero.jpg" 
+            alt="London Docklands Cityscape"
+            fill
+            className="object-cover"
+            priority
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-blue-50/80 to-white/80 dark:from-gray-900/90 dark:to-gray-800/90 z-0" />
+        </div>
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <motion.div
             initial="initial"
@@ -45,6 +54,15 @@ export default function Home() {
             variants={fadeIn}
             className="text-center space-y-8"
           >
+            <div className="relative w-32 h-32 mx-auto mb-8">
+              <Image
+                src="/images/hero/profile.jpg"
+                alt="Giannis Katsanakis"
+                fill
+                className="rounded-full object-cover border-4 border-white dark:border-gray-800 shadow-lg"
+                priority
+              />
+            </div>
             <h1 className="text-4xl sm:text-6xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400">
               Giannis Katsanakis
             </h1>
@@ -54,16 +72,10 @@ export default function Home() {
             <p className="text-xl sm:text-2xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
               Building scalable enterprise solutions with Java and modern web technologies
             </p>
-            <div className="flex gap-4 justify-center">
-              <Link
-                href="/projects"
-                className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-full font-medium transition-colors"
-              >
-                View Projects
-              </Link>
+            <div className="flex justify-center">
               <Link
                 href="/contact"
-                className="bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 text-gray-900 dark:text-white px-6 py-3 rounded-full font-medium transition-colors"
+                className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-full font-medium transition-colors"
               >
                 Contact Me
               </Link>
@@ -181,60 +193,6 @@ export default function Home() {
                   </div>
                 </motion.div>
               ))}
-            </div>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Featured Projects Preview */}
-      <section className="py-20 bg-white dark:bg-gray-900">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial="initial"
-            whileInView="animate"
-            variants={fadeIn}
-            viewport={{ once: true }}
-            className="space-y-12"
-          >
-            <div className="text-center">
-              <h2 className="text-3xl sm:text-4xl font-bold mb-4">
-                Featured Projects
-              </h2>
-              <p className="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-                Here are some of my recent projects that showcase my skills and experience.
-              </p>
-            </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {/* Project cards will be added here */}
-              <div className="bg-gray-50 dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden">
-                <div className="p-6">
-                  <h3 className="text-xl font-semibold mb-2">Coming Soon</h3>
-                  <p className="text-gray-600 dark:text-gray-300">
-                    Exciting projects are in development. Check back soon!
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div className="text-center">
-              <Link
-                href="/projects"
-                className="inline-flex items-center text-blue-600 dark:text-blue-400 hover:underline"
-              >
-                View all projects
-                <svg
-                  className="ml-2 w-4 h-4"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M9 5l7 7-7 7"
-                  />
-                </svg>
-              </Link>
             </div>
           </motion.div>
         </div>
