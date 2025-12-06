@@ -1,19 +1,28 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* Define theme colours for Tailwind utilities */
+@theme {
+    --color-background: #ffffff;
+    --color-foreground: #171717;
+    --color-background-dark: #0a0a0a;
+    --color-foreground-dark: #ededed;
 }
 
-.dark {
-  --background: #0a0a0a;
-  --foreground: #ededed;
-}
-
+/* Use CSS variables + Tailwind utilities */
 @layer base {
-  body {
-    @apply bg-background text-foreground min-h-screen;
-  }
+    :root {
+        color-scheme: light;
+        --color-background: #ffffff;
+        --color-foreground: #171717;
+    }
+
+    .dark {
+        color-scheme: dark;
+        --color-background: var(--color-background-dark);
+        --color-foreground: var(--color-foreground-dark);
+    }
+
+    body {
+        @apply bg-background text-foreground min-h-screen;
+    }
 }
