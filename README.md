@@ -1,97 +1,77 @@
 # Modern Portfolio Website
 
-A cutting-edge portfolio website built with Next.js 14, showcasing modern web development practices and interactive user experiences.
+A personal portfolio website built with Next.js 16, showcasing modern web development practices and interactive user experiences. Deployed at [portfolio.giannisk.dev](https://portfolio.giannisk.dev).
 
-## 🚀 Features
+## Features
 
-- **Modern Tech Stack**: Built with Next.js 14, TypeScript, and Tailwind CSS
+- **Modern Tech Stack**: Built with Next.js 16, React 19, TypeScript 5.9, and Tailwind CSS v4
 - **Responsive Design**: Seamless experience across all devices
-- **Interactive UI**: Engaging user interface with smooth animations
-- **Performance Optimized**: Fast loading times and optimal performance
-- **Type Safety**: Full TypeScript integration for robust code
-- **SEO Friendly**: Optimized for search engines
-- **Dark Mode**: Elegant dark/light theme switching
+- **Interactive UI**: Smooth scroll-triggered animations with Framer Motion
+- **Dark/Light Mode**: Theme toggle with localStorage persistence
+- **Contact Form**: Email delivery via EmailJS
+- **SEO Optimized**: OpenGraph images, sitemap, robots.txt, structured metadata
+- **Type Safety**: Full TypeScript integration
 
-## 💻 Tech Stack
+## Tech Stack
 
-- **Framework**: Next.js 14
-- **Language**: TypeScript
-- **Styling**: Tailwind CSS
-- **Animations**: Framer Motion
-- **State Management**: React Hooks
-- **Form Handling**: React Hook Form
-- **Development**: ESLint, Prettier
+- **Framework**: Next.js 16 (App Router)
+- **Language**: TypeScript 5.9
+- **Styling**: Tailwind CSS v4
+- **Animations**: Framer Motion 12
+- **Email**: EmailJS (@emailjs/browser)
 - **Deployment**: Vercel
 
-## 🛠️ Installation & Setup
+## Installation & Setup
 
 1. Clone the repository
 ```bash
-git clone https://github.com/yourusername/portfolio.git
+git clone https://github.com/gianniskatsa/per-portfolio.git
 ```
 
-2. Install dependencies
+2. Navigate to the app directory and install dependencies
 ```bash
-cd portfolio
+cd per-portfolio/portfolio
 npm install
 ```
 
-3. Run the development server
+3. Set up environment variables
+```bash
+cp .env.example .env.local
+# Edit .env.local with your EmailJS credentials
+```
+
+4. Run the development server
 ```bash
 npm run dev
 ```
 
-4. Open [http://localhost:3000](http://localhost:3000) in your browser
+5. Open [http://localhost:3000](http://localhost:3000) in your browser
 
-## 📁 Project Structure
+## Project Structure
 
 ```
-portfolio/
-├── app/                    # Next.js 14 app directory
-│   ├── components/         # Reusable components
-│   ├── lib/               # Utility functions
-│   ├── types/             # TypeScript types
-│   └── styles/            # Global styles
-├── public/                # Static assets
-└── ...config files
+per-portfolio/
+├── portfolio/                # Next.js application
+│   ├── app/
+│   │   ├── layout.tsx        # Root layout with SEO metadata
+│   │   ├── page.tsx          # Home page
+│   │   ├── about/page.tsx    # About page
+│   │   ├── contact/page.tsx  # Contact page
+│   │   ├── projects/page.tsx # Projects page
+│   │   ├── components/       # Reusable components
+│   │   ├── data/             # Shared data (experience, skills, projects)
+│   │   └── types/            # TypeScript interfaces
+│   └── public/               # Static assets
+└── memory-bank/              # Project documentation
 ```
 
-## 🎨 Design System
+## Pages
 
-- **Typography**: Modern, readable fonts optimized for web
-- **Colors**: Carefully selected palette for both light and dark modes
-- **Components**: Reusable, accessible component library
-- **Spacing**: Consistent spacing system using Tailwind CSS
+- **Home**: Hero section, about summary, skills grid, experience timeline
+- **About**: Detailed experience timeline, technical expertise grid
+- **Projects**: Filterable project cards with tech tags
+- **Contact**: Info cards, email form, social links
 
-## 🔧 Development
-
-- **Code Style**: ESLint and Prettier for consistent code formatting
-- **Git Flow**: Feature branches and semantic commit messages
-- **Testing**: Unit tests for critical components
-- **Documentation**: Inline documentation and TypeScript types
-
-## 📱 Responsive Design
-
-- Mobile-first approach
-- Breakpoints:
-  - Mobile: 320px - 480px
-  - Tablet: 481px - 768px
-  - Desktop: 769px+
-
-## ⚡ Performance
-
-- Server-side rendering
-- Image optimization
-- Code splitting
-- Minimal bundle size
-- Efficient data fetching
-
-## 🔗 Links
-
-- [Live Demo](https://your-portfolio.vercel.app)
-- [Documentation](https://github.com/yourusername/portfolio/wiki)
-- [Issues](https://github.com/yourusername/portfolio/issues)
-
-## 📄 License
+## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.

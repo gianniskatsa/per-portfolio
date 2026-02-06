@@ -8,8 +8,8 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://portfolio.giannisk.dev'),
-  title: "Giannis Katsanakis - Full Stack Developer",
-  description: "Full Stack Developer specializing in Java, Spring Boot, React, and Next.js",
+  title: "Giannis Katsanakis - Senior Software Engineer",
+  description: "Senior Software Engineer specializing in Java, Spring Boot, microservices, and AWS cloud-native solutions",
   keywords: [
     "portfolio",
     "web development",
@@ -33,22 +33,13 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_GB",
     siteName: "Giannis Katsanakis Portfolio",
-    title: "Giannis Katsanakis - Full Stack Developer",
-    description: "Full Stack Developer specializing in Java, Spring Boot, React, and Next.js",
-    images: [
-      {
-        url: "/og-image.jpg",
-        width: 1200,
-        height: 630,
-        alt: "Giannis Katsanakis Portfolio",
-      },
-    ],
+    title: "Giannis Katsanakis - Senior Software Engineer",
+    description: "Senior Software Engineer specializing in Java, Spring Boot, microservices, and AWS cloud-native solutions",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Giannis Katsanakis - Full Stack Developer",
-    description: "Full Stack Developer specializing in Java, Spring Boot, React, and Next.js",
-    images: ["/og-image.jpg"],
+    title: "Giannis Katsanakis - Senior Software Engineer",
+    description: "Senior Software Engineer specializing in Java, Spring Boot, microservices, and AWS cloud-native solutions",
   },
 };
 

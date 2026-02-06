@@ -1,66 +1,14 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { experience } from "../data/experience";
+import { expertise } from "../data/skills";
 
 export default function About() {
   const fadeIn = {
     initial: { opacity: 0, y: 20 },
     animate: { opacity: 1, y: 0 },
     transition: { duration: 0.5 },
-  };
-
-  const experience = [
-    {
-      role: "Software Engineering Consultant",
-      company: "Accenture UK & Ireland",
-      period: "Jun 2022 - Present",
-      location: "London, UK",
-      description: [
-        "Specializing in Java enterprise solutions and microservices architecture",
-        "Implementing clean code practices and test-driven development",
-        "Working with Spring Framework, Hibernate, and PostgreSQL",
-        "Deploying applications using Docker, Kubernetes, and Terraform",
-      ],
-    },
-    {
-      role: "Junior Java Developer",
-      company: "Agile Actors",
-      period: "Mar 2021 - Jun 2022",
-      location: "Athens, Greece",
-      description: [
-        "Developed and maintained Java-based applications",
-        "Worked with REST APIs and microservices",
-        "Implemented unit testing and continuous integration practices",
-        "Collaborated in an agile development environment",
-      ],
-    },
-  ];
-
-  const expertise = {
-    "Backend Development": [
-      "Java (Core Java, Spring Framework, JVM)",
-      "Database Management (PostgreSQL, Hibernate ORM)",
-      "RESTful API Design and Implementation",
-      "Concurrent Programming and Java Concurrency",
-    ],
-    "DevOps & Cloud": [
-      "Container Orchestration (Docker, Kubernetes)",
-      "Infrastructure as Code (Terraform)",
-      "CI/CD Implementation",
-      "Monitoring and Observability (Grafana)",
-    ],
-    "Best Practices": [
-      "Clean Code & Software Design Patterns",
-      "Test-Driven Development (TDD)",
-      "Microservices Architecture",
-      "Agile Methodologies",
-    ],
-    "Frontend Development": [
-      "React.js & Next.js",
-      "TypeScript & JavaScript",
-      "Modern CSS (Tailwind, Responsive Design)",
-      "Frontend Build Tools & Performance",
-    ],
   };
 
   return (
@@ -77,9 +25,10 @@ export default function About() {
             About Me
           </h1>
           <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-            Software Engineer based in London, specializing in building scalable enterprise 
-            solutions with Java and modern web technologies. Passionate about clean code, 
-            microservices architecture, and continuous improvement.
+            Senior Software Engineer with 5+ years of experience specializing in Java, Spring Boot,
+            and microservices architecture. Expert in building enterprise-scale distributed systems
+            using clean code principles, TDD/BDD methodologies, and domain-driven design. Strong
+            advocate for code quality, automated testing, and Agile delivery.
           </p>
         </motion.div>
       </section>
@@ -111,7 +60,7 @@ export default function About() {
                     <div className="space-y-2">
                       <h3 className="text-2xl font-semibold">{job.role}</h3>
                       <p className="text-blue-600 dark:text-blue-400 text-lg">{job.company}</p>
-                      <div className="flex justify-between text-gray-600 dark:text-gray-300">
+                      <div className="flex flex-col sm:flex-row sm:justify-between text-gray-600 dark:text-gray-300 gap-1">
                         <span>{job.period}</span>
                         <span>{job.location}</span>
                       </div>
@@ -121,6 +70,25 @@ export default function About() {
                         <li key={i}>{item}</li>
                       ))}
                     </ul>
+                    {job.projects && (
+                      <div className="space-y-4 mt-4">
+                        {job.projects.map((project) => (
+                          <div key={project.name} className="pl-4 border-l-2 border-blue-500 dark:border-blue-400">
+                            <h4 className="font-medium text-gray-800 dark:text-gray-200 mb-2">
+                              {project.name}
+                            </h4>
+                            <ul className="space-y-1 text-gray-600 dark:text-gray-300 text-sm">
+                              {project.bullets.map((bullet, bi) => (
+                                <li key={bi} className="flex gap-2">
+                                  <span className="text-blue-500 mt-1.5 shrink-0">&#8226;</span>
+                                  <span>{bullet}</span>
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+                        ))}
+                      </div>
+                    )}
                   </div>
                 </motion.div>
               ))}

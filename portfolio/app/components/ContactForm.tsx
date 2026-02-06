@@ -10,10 +10,18 @@ interface FormData {
   message: string;
 }
 
+const EMAILJS_SERVICE_ID = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID;
+const EMAILJS_TEMPLATE_ID = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID;
+const EMAILJS_PUBLIC_KEY = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY;
+
 export default function ContactForm() {
+  const isConfigured = !!(EMAILJS_SERVICE_ID && EMAILJS_TEMPLATE_ID && EMAILJS_PUBLIC_KEY);
+
   useEffect(() => {
-    emailjs.init(process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!);
-  }, []);
+    if (isConfigured) {
+      emailjs.init(EMAILJS_PUBLIC_KEY);
+    }
+  }, [isConfigured]);
 
   const [formData, setFormData] = useState<FormData>({
     name: "",
@@ -43,19 +51,28 @@ export default function ContactForm() {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+
+    if (!isConfigured) {
+      setStatus({
+        type: "error",
+        message: "Contact form is not configured. Please try again later.",
+      });
+      return;
+    }
+
     setIsSubmitting(true);
 
     try {
       await emailjs.send(
-        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
-        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!,
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
         {
           from_name: formData.name,
           from_email: formData.email,
           message: formData.message,
           to_email: 'giannis.katsanakis1@gmail.com'
         },
-        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY
+        EMAILJS_PUBLIC_KEY
       );
 
       setStatus({
