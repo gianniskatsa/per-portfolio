@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { MotionDiv } from "./components/MotionDiv";
 import Image from "next/image";
 import Link from "next/link";
 import dynamic from "next/dynamic";
@@ -37,11 +37,6 @@ const HeroContent = dynamic(() => import("./components/HeroContent"), {
 });
 
 export default function Home() {
-  const fadeIn = {
-    initial: { opacity: 0, y: 20 },
-    animate: { opacity: 1, y: 0 },
-    transition: { duration: 0.5 },
-  };
 
   return (
     <div className="min-h-screen">
@@ -66,12 +61,11 @@ export default function Home() {
       {/* About Section */}
       <section className="py-20 bg-white dark:bg-gray-900">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-3xl">
-          <motion.div
-            initial="initial"
-            whileInView="animate"
-            variants={fadeIn}
+          <MotionDiv
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
             viewport={{ once: true }}
-            className="text-center space-y-6"
+            className="text-center space-y-6 opacity-0 translate-y-[20px]"
           >
             <h2 className="text-3xl sm:text-4xl font-bold">
               About Me
@@ -101,31 +95,30 @@ export default function Home() {
                 />
               </svg>
             </Link>
-          </motion.div>
+          </MotionDiv>
         </div>
       </section>
 
       {/* Skills Section */}
       <section className="py-20 bg-gray-50 dark:bg-gray-800">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
-          <motion.div
-            initial="initial"
-            whileInView="animate"
-            variants={fadeIn}
+          <MotionDiv
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 0.5 }}
             viewport={{ once: true }}
+            className="opacity-0"
           >
             <h2 className="text-3xl sm:text-4xl font-bold text-center mb-12">
               Technical Skills
             </h2>
             <div className="space-y-6">
               {Object.entries(skillTags).map(([category, categorySkills], categoryIndex) => (
-                <motion.div
+                <MotionDiv
                   key={category}
-                  initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ delay: categoryIndex * 0.1 }}
                   viewport={{ once: true }}
-                  className="bg-white dark:bg-gray-900 rounded-xl p-5 flex flex-col sm:flex-row sm:items-center gap-3"
+                  className="bg-white dark:bg-gray-900 rounded-xl p-5 flex flex-col sm:flex-row sm:items-center gap-3 opacity-0 translate-y-[20px]"
                 >
                   <h3 className="text-sm font-semibold uppercase tracking-wider text-blue-600 dark:text-blue-400 sm:w-40 shrink-0">
                     {category}
@@ -140,22 +133,21 @@ export default function Home() {
                       </span>
                     ))}
                   </div>
-                </motion.div>
+                </MotionDiv>
               ))}
             </div>
-          </motion.div>
+          </MotionDiv>
         </div>
       </section>
 
       {/* Experience Section */}
       <section className="py-20 bg-white dark:bg-gray-900">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial="initial"
-            whileInView="animate"
-            variants={fadeIn}
+          <MotionDiv
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 0.5 }}
             viewport={{ once: true }}
-            className="space-y-12"
+            className="space-y-12 opacity-0"
           >
             <div className="text-center">
               <h2 className="text-3xl sm:text-4xl font-bold mb-4">
@@ -167,13 +159,12 @@ export default function Home() {
             </div>
             <div className="space-y-8">
               {experience.map((job, index) => (
-                <motion.div
+                <MotionDiv
                   key={job.company}
-                  initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ delay: index * 0.2 }}
                   viewport={{ once: true }}
-                  className="bg-white dark:bg-gray-900 rounded-xl shadow-lg p-6"
+                  className="bg-white dark:bg-gray-900 rounded-xl shadow-lg p-6 opacity-0 translate-y-[20px]"
                 >
                   <div className="space-y-2">
                     <h3 className="text-xl font-semibold">{job.role}</h3>
@@ -183,10 +174,10 @@ export default function Home() {
                       <span>{job.location}</span>
                     </div>
                   </div>
-                </motion.div>
+                </MotionDiv>
               ))}
             </div>
-          </motion.div>
+          </MotionDiv>
         </div>
       </section>
     </div>

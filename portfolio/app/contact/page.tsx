@@ -1,16 +1,10 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { MotionDiv, MotionA } from "../components/MotionDiv";
 import ContactForm from "../components/ContactForm";
 import { socialLinks } from "../data/socialLinks";
 
 export default function Contact() {
-  const fadeIn = {
-    initial: { opacity: 0, y: 20 },
-    animate: { opacity: 1, y: 0 },
-    transition: { duration: 0.5 },
-  };
-
   const contactInfo = [
     {
       title: "Location",
@@ -81,11 +75,11 @@ export default function Contact() {
     <div className="min-h-screen py-20">
       {/* Hero Section */}
       <section className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div
-          initial="initial"
-          animate="animate"
-          variants={fadeIn}
-          className="text-center space-y-8 mb-16"
+        <MotionDiv
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          viewport={{ once: true }}
+          className="text-center space-y-8 mb-16 opacity-0 translate-y-[20px]"
         >
           <h1 className="text-4xl sm:text-5xl font-bold text-gray-900 dark:text-gray-100">
             Get in Touch
@@ -94,83 +88,79 @@ export default function Contact() {
             I am always interested in hearing about new opportunities and collaborations.
             Feel free to reach out if you would like to discuss a project or just want to connect.
           </p>
-        </motion.div>
+        </MotionDiv>
       </section>
 
       {/* Contact Information */}
       <section className="py-12 bg-gray-50 dark:bg-gray-800">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial="initial"
-            whileInView="animate"
-            variants={fadeIn}
+          <MotionDiv
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 0.5 }}
             viewport={{ once: true }}
-            className="grid grid-cols-1 md:grid-cols-3 gap-8"
+            className="grid grid-cols-1 md:grid-cols-3 gap-8 opacity-0"
           >
             {contactInfo.map((info, index) => (
-              <motion.div
+              <MotionDiv
                 key={info.title}
-                initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.2 }}
                 viewport={{ once: true }}
-                className="bg-white dark:bg-gray-900 rounded-xl p-6 text-center space-y-4"
+                className="bg-white dark:bg-gray-900 rounded-xl p-6 text-center space-y-4 opacity-0 translate-y-[20px]"
               >
                 <div className="w-12 h-12 mx-auto bg-blue-100 dark:bg-blue-900 rounded-full flex items-center justify-center text-blue-600 dark:text-blue-400">
                   {info.icon}
                 </div>
                 <h3 className="text-lg font-semibold">{info.title}</h3>
                 <p className="text-gray-600 dark:text-gray-300">{info.details}</p>
-              </motion.div>
+              </MotionDiv>
             ))}
-          </motion.div>
+          </MotionDiv>
         </div>
       </section>
 
       {/* Contact Form Section */}
       <section className="py-12 bg-white dark:bg-gray-900">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-3xl">
-          <motion.div
-            initial="initial"
-            whileInView="animate"
-            variants={fadeIn}
+          <MotionDiv
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
             viewport={{ once: true }}
+            className="opacity-0 translate-y-[20px]"
           >
             <ContactForm />
-          </motion.div>
+          </MotionDiv>
         </div>
       </section>
 
       {/* Social Links */}
       <section className="py-12">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial="initial"
-            whileInView="animate"
-            variants={fadeIn}
+          <MotionDiv
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 0.5 }}
             viewport={{ once: true }}
-            className="text-center space-y-8"
+            className="text-center space-y-8 opacity-0"
           >
             <h2 className="text-2xl font-bold">Connect with Me</h2>
             <div className="flex justify-center space-x-6">
               {socialLinks.map((link, index) => (
-                <motion.a
+                <MotionA
                   key={link.name}
                   href={link.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ delay: index * 0.2 }}
                   viewport={{ once: true }}
-                  className="text-gray-600 hover:text-blue-600 dark:text-gray-300 dark:hover:text-blue-400 transition-colors"
+                  className="text-gray-600 hover:text-blue-600 dark:text-gray-300 dark:hover:text-blue-400 transition-colors opacity-0 translate-y-[20px]"
                 >
                   {link.icon}
                   <span className="sr-only">{link.name}</span>
-                </motion.a>
+                </MotionA>
               ))}
             </div>
-          </motion.div>
+          </MotionDiv>
         </div>
       </section>
     </div>

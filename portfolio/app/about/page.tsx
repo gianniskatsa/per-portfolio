@@ -1,25 +1,20 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { MotionDiv } from "../components/MotionDiv";
 import { experience } from "../data/experience";
 import { expertise } from "../data/skills";
 
 export default function About() {
-  const fadeIn = {
-    initial: { opacity: 0, y: 20 },
-    animate: { opacity: 1, y: 0 },
-    transition: { duration: 0.5 },
-  };
 
   return (
     <div className="min-h-screen py-20">
       {/* Hero Section */}
       <section className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div
-          initial="initial"
-          animate="animate"
-          variants={fadeIn}
-          className="text-center space-y-8 mb-16"
+        <MotionDiv
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          viewport={{ once: true }}
+          className="text-center space-y-8 mb-16 opacity-0 translate-y-[20px]"
         >
           <h1 className="text-4xl sm:text-5xl font-bold text-gray-900 dark:text-gray-100">
             About Me
@@ -30,31 +25,29 @@ export default function About() {
             using clean code principles, TDD/BDD methodologies, and domain-driven design. Strong
             advocate for code quality, automated testing, and Agile delivery.
           </p>
-        </motion.div>
+        </MotionDiv>
       </section>
 
       {/* Professional Experience */}
       <section className="py-16 bg-gray-50 dark:bg-gray-800">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial="initial"
-            whileInView="animate"
-            variants={fadeIn}
+          <MotionDiv
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 0.5 }}
             viewport={{ once: true }}
-            className="space-y-12"
+            className="space-y-12 opacity-0"
           >
             <h2 className="text-3xl font-bold text-center mb-12">
               Professional Experience
             </h2>
             <div className="space-y-8">
               {experience.map((job, index) => (
-                <motion.div
+                <MotionDiv
                   key={job.company}
-                  initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ delay: index * 0.2 }}
                   viewport={{ once: true }}
-                  className="bg-white dark:bg-gray-900 rounded-xl shadow-lg p-8"
+                  className="bg-white dark:bg-gray-900 rounded-xl shadow-lg p-8 opacity-0 translate-y-[20px]"
                 >
                   <div className="space-y-4">
                     <div className="space-y-2">
@@ -90,35 +83,33 @@ export default function About() {
                       </div>
                     )}
                   </div>
-                </motion.div>
+                </MotionDiv>
               ))}
             </div>
-          </motion.div>
+          </MotionDiv>
         </div>
       </section>
 
       {/* Technical Expertise */}
       <section className="py-16 bg-white dark:bg-gray-900">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial="initial"
-            whileInView="animate"
-            variants={fadeIn}
+          <MotionDiv
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 0.5 }}
             viewport={{ once: true }}
-            className="space-y-12"
+            className="space-y-12 opacity-0"
           >
             <h2 className="text-3xl font-bold text-center mb-12">
               Technical Expertise
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               {Object.entries(expertise).map(([category, items], categoryIndex) => (
-                <motion.div
+                <MotionDiv
                   key={category}
-                  initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ delay: categoryIndex * 0.2 }}
                   viewport={{ once: true }}
-                  className="bg-gray-50 dark:bg-gray-800 rounded-xl p-6 space-y-4"
+                  className="bg-gray-50 dark:bg-gray-800 rounded-xl p-6 space-y-4 opacity-0 translate-y-[20px]"
                 >
                   <h3 className="text-xl font-semibold text-gray-900 dark:text-gray-100">
                     {category}
@@ -146,10 +137,10 @@ export default function About() {
                       </li>
                     ))}
                   </ul>
-                </motion.div>
+                </MotionDiv>
               ))}
             </div>
-          </motion.div>
+          </MotionDiv>
         </div>
       </section>
     </div>
