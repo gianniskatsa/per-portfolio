@@ -1,6 +1,6 @@
 # Modern Portfolio Website
 
-A personal portfolio website built with Next.js 16, showcasing modern web development practices and interactive user experiences. Deployed at [portfolio.giannisk.dev](https://gianniskatsanakis.vercel.app/).
+A personal portfolio website built with Next.js 16, showcasing modern web development practices and interactive user experiences. Deployed at [https://gianniskatsanakis.vercel.app/](https://gianniskatsanakis.vercel.app/).
 
 ## Features
 
